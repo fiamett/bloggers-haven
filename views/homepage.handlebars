@@ -1,0 +1,14 @@
+<div>
+    <h2>Welcome to bloggers haven!</h2>
+</div>
+{{#each post as |post|}}
+    <a href="/post/{{post.id}}">
+        <form id="post">
+            <div class="pHead">
+                <h2 id="title">{{post.title}}</h2>
+                <sub class="postDate">posted by {{post.user.name}} on {{post.date_created}}</sub>
+            </div>
+            <p id="content">{{post.content}}</p>
+        </form>
+    </a>
+{{/each}}

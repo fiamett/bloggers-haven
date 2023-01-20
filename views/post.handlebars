@@ -1,0 +1,37 @@
+<form id="post">
+    <div class="pHead">
+        <h2 id="title">{{post.title}}</h2>
+        <sub class="postDate">posted by {{post.user.name}} on {{post.date_created}}</sub>
+        {{#if poster}}
+            <div class="buttons">
+                <button id="editP">edit</button>
+                <button id="deleteP">delete</button>
+            </div>
+        {{/if}}
+    </div>
+    <p id="content">{{post.content}}</p>
+</form>
+<div class="comment_section">
+    <form class="commentForm">
+        <h2>have a thought? add a comment</h2>
+        <input type="text" id="comm" name="commment">
+        <input type="submit" value="submit">
+    </form>
+    {{#each comments as |comment|}}
+        <form class='comment' id="com{{comment.id}}">
+            <div class="cHead">
+                <h4>posted by: {{comment.user.name}}</h4>
+                {{#if comment.isComm}}
+                    <div class="buttons">
+                        <button class="editC com{{comment.id}}">edit</button>
+                        <button class="deleteC com{{comment.id}}">delete</button>
+                    </div>
+                {{/if}}
+            </div>
+            <sub class="comment cContent com{{comment.id}}">{{comment.comment}}</sub>
+        </form>
+    {{/each}}
+</div>
+
+<script src="/js/post.js"></script>
+<script src="/js/comment.js"></script>

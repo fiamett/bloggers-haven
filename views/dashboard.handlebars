@@ -1,0 +1,13 @@
+
+<h2>all your posts</h2>
+{{#each post as |post|}}
+    <a href="/post/{{post.id}}">
+        <form id="post">
+            <div class="pHead">
+                <h2 id="title">{{post.title}}</h2>
+                <sub class="postIn">posted by {{post.user.name}} on {{post.date_created}}</sub>
+            </div>
+            <p id="content">{{post.content}}</p>
+        </form>
+    </a>
+{{/each}}
